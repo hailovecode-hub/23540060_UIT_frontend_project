@@ -1,0 +1,135 @@
+/* --- PAGE HERO (Dùng chung cho các trang con) --- */
+.page-hero {
+  background-color: #f0fdf4; /* Xanh rất nhạt */
+  padding: 6rem 0 4rem;
+  text-align: center;
+}
+
+.page-hero__title {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 3.6rem;
+  color: var(--color-gray-dark);
+  margin-bottom: 1rem;
+}
+
+.page-hero__desc {
+  font-size: 1.8rem;
+  color: var(--color-gray-text-1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- ABOUT US PAGE --- */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.value-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--default-shadow);
+  text-align: center;
+  border-top: 4px solid var(--color-primary);
+}
+
+.value-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--primary-color-light);
+}
+
+.team-name {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--color-gray-dark);
+}
+
+.team-role {
+  color: var(--primary-color-dark);
+  font-size: 1.4rem;
+}
+
+/* --- CONTACT PAGE --- */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  background: white;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: var(--medium-shadow);
+}
+
+.contact-info__item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.contact-icon {
+  background: #dcfce7;
+  color: var(--color-primary);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-gray-text-2);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-family: var(--font-primary);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,269 @@
+/* ====================================
+   PROFILE PAGE - MODERN & CLEAN
+   Chuẩn: html { font-size: 62.5%; } → 1rem = 10px
+==================================== */
+
+:root {
+  /* --- CÁC BIẾN RIÊNG CHO PROFILE (Không có trong Global) --- */
+  --accent: #FFC107;
+  --danger: #e74c3c;
+  
+  /* Border dùng tạm gray */
+  --border: #e2e8f0; 
+  
+  --radius: 2.4rem;
+  
+  /* Shadow này có màu xanh (tint của primary)*/
+  --shadow-profile: 0 1rem 3rem rgba(88, 204, 2, 0.15);
+  --shadow-hover-profile: 0 2rem 4rem rgba(88, 204, 2, 0.25);
+  
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-section {
+  padding-top: 12rem;
+  padding-bottom: 6rem;
+  /* Thay --bg bằng --color-background từ global */
+  background: var(--color-background);
+  min-height: 100vh;
+}
+
+.profile-container {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+.profile-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  align-items: start;
+}
+
+.avatar-container {
+  text-align: center;
+}
+
+.avatar {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+  /* Thay --primary-light bằng --primary-color-light */
+  border: 0.6rem solid var(--primary-color-light);
+  box-shadow: var(--shadow-profile);
+  position: relative;
+  background: var(--primary-color-light);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.avatar-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  color: white;
+}
+
+.avatar-upload-btn {
+  /* Thay --primary bằng --color-primary */
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: var(--transition);
+}
+
+.avatar-upload-btn:hover {
+  /* Thay --primary-dark bằng --primary-color-dark */
+  background: var(--primary-color-dark);
+  transform: translateY(-0.2rem);
+}
+
+.user-stats h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  /* Thay --text bằng --text-dark */
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.user-stats .user-email {
+  /* Thay --text-light bằng --text-light (trùng tên nhưng giờ dùng từ global) */
+  color: var(--text-light);
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  /* Thay --card-bg bằng --color-card-bg */
+  background: var(--color-card-bg);
+  padding: 1.5rem;
+  border-radius: 1.6rem;
+  box-shadow: var(--shadow-profile);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.stat-label {
+  font-size: 1.3rem;
+  color: var(--text-light);
+}
+
+/* Form Cards */
+.profile-form-card {
+  background: var(--color-card-bg);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-profile);
+  margin-bottom: 3rem;
+}
+
+.profile-form-card h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+  border-bottom: 0.3rem solid var(--color-primary);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  border: 0.2rem solid var(--border);
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  transition: var(--transition);
+  background: #f8fafc; /* Giữ nguyên hoặc đổi thành var(--color-gray-light-1) */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.4rem rgba(88, 204, 2, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: 1.2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-color-dark);
+  transform: translateY(-0.2rem);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-light);
+  border: 0.2rem solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+  transform: translateY(-0.2rem);
+}
+
+.danger-zone {
+  border: 0.2rem solid var(--danger);
+}
+
+.danger-zone h2 {
+  color: var(--danger);
+  border-bottom-color: var(--danger);
+}
+
+.danger-zone p {
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .profile-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-actions {
+    flex-direction: column;
+  }
+}

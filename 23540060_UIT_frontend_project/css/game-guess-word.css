@@ -1,0 +1,292 @@
+:root {
+    --bg-color: #F0F2F5;
+    --container-bg: #FFFFFF;
+    --text-color: #333333;
+    --text-light-color: #555555;
+    --primary-color: #58CC02;
+    --primary-shadow: #4AA802;
+    --root-node-color: #FF4B4B;
+    --root-node-glow: rgba(255, 75, 75, 0.6);
+    --neuron-color: #0070F3;
+    --neuron-glow: rgba(0, 112, 243, 0.4);
+    --line-color: #DDE2E7;
+    --correct-color: #58CC02;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    /* QUAN TRỌNG: Đặt lại font-size chuẩn cho body khi html = 62.5% */
+    font-size: 1.6rem; /* = 16px */
+    line-height: 1.5;
+}
+
+#header-placeholder {
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+    flex-shrink: 0;
+}
+
+.app-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem; /* Tăng padding bao quanh */
+    box-sizing: border-box;
+}
+
+#level-selection {
+    background-color: var(--container-bg);
+    padding: 3rem 4rem; /* Tăng padding */
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#level-selection h1 {
+    font-size: 2.8rem; /* Tăng size tiêu đề */
+    margin-bottom: 1rem;
+}
+
+#level-selection p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.level-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.level-btn {
+    padding: 1.2rem 2rem; /* Tăng padding nút */
+    font-size: 1.6rem;     /* Chữ trong nút to lên */
+    font-weight: bold;
+    border: none;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #eaf4ff;
+    color: #0070F3;
+    border: 2px solid #D9EDFF;
+}
+
+.level-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.4rem 1rem rgba(0, 112, 243, 0.2);
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem; /* Tăng khoảng cách 2 cột */
+    width: 100%;
+    max-width: 1100px; /* Tăng max-width một chút */
+    align-items: center;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+header h1 {
+    font-size: 2.8rem; /* Tiêu đề to hơn */
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+header p {
+    font-size: 1.5rem;
+}
+
+#hint {
+    background-color: #eaf4ff;
+    padding: 1.2rem 1.5rem;
+    border-radius: 1.2rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.control-panel,
+#history-panel {
+    background-color: var(--container-bg);
+    padding: 2rem; /* Padding panel to hơn */
+    border-radius: 1.6rem;
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.04);
+    border: 1px solid #E5E7EB;
+}
+
+#word-input {
+    width: 100%;
+    background-color: #F9FAFB;
+    border: 2px solid #E5E7EB;
+    padding: 1.2rem 1.5rem; /* Input to hơn */
+    border-radius: 1rem;
+    font-size: 1.6rem; /* Chữ input to hơn */
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+#guess-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1.2rem 2rem;
+    border-radius: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0.4rem 0 var(--primary-shadow);
+    width: 100%; /* Full width button nhìn đẹp hơn trên mobile */
+}
+
+#guess-btn:active:not(:disabled) {
+    transform: translateY(0.4rem);
+    box-shadow: none;
+}
+
+#history-panel {
+    height: 250px; /* Tăng chiều cao */
+    overflow-y: auto;
+}
+
+#history-panel h3 {
+    font-size: 1.8rem;
+    margin-top: 0;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#history-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1.5rem;
+}
+
+/* Brain Container */
+.right-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#brain-container {
+    --progress-angle: 0deg;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    background-image: conic-gradient(var(--line-color) var(--progress-angle), var(--primary-color) var(--progress-angle));
+    border-radius: 50%;
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.05), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 0.3s ease;
+}
+
+#brain-container::before {
+    content: '';
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    background: var(--container-bg);
+    border-radius: 50%;
+}
+
+#root-node {
+    width: 30px;
+    height: 30px;
+    background-color: var(--root-node-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 1.5rem 0.4rem var(--root-node-glow);
+    z-index: 15;
+}
+
+.neuron {
+    z-index: 10;
+    width: 24px; /* To hơn chút */
+    height: 24px;
+    background-color: var(--neuron-color);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 1rem 0.2rem var(--neuron-glow);
+    transform: translate(-50%, -50%) scale(0);
+    animation: spawn 0.5s ease-out forwards;
+}
+
+.neuron-core {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.connection-line {
+    z-index: 5;
+    height: 2px;
+    background-color: var(--line-color);
+    position: absolute;
+    transform-origin: left center;
+    width: 0;
+}
+
+#result-message {
+    min-height: 2rem;
+    font-weight: 500;
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+}
+
+#final-score {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes spawn {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

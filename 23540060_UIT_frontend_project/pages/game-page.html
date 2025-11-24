@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocabMaster - Trung Tâm Trò Chơi</title>
+    <!-- Tối ưu SEO  -->
+  <meta name="description"
+    content="Xua tan nhàm chán với kho game luyện từ vựng: Lật thẻ Flashcard, Đoán từ bí ẩn. Phương pháp Gamification giúp bạn ghi nhớ từ vựng tự nhiên và lâu dài.">
+  <meta name="keywords" content="học tiếng anh, từ vựng tiếng anh, AI học tiếng anh, VocabMaster, flashcard">
+  <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+  <meta property="og:description"
+    content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+  <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+  <meta property="og:url" content="https://vocabmaster.com/">
+  <!--  -->
+  <!-- duong-dan-toi-favicon -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/game-page.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container">
+      <a href="./home-page.html" style="text-decoration: none;">
+        <div class="logo">
+          <span class="logo__icon">🦉</span>
+          <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="./home-page.html" class="nav__link">🏠</a>
+        <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+        <a href="./ranking-page.html" class="nav__link">Bảng Xếp Hạng</a>
+        <a href="./store-page.html" class="nav__link">Cửa Hàng</a>
+      </nav>
+
+      <div class="user-profile">
+        <span class="profile-icon" title="Hồ sơ của bạn">
+          <a href="../pages/profile.html">👤</a>
+        </span>
+        <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav2">
+    <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+    <a href="./ranking.html" class="nav__link">Bảng Xếp Hạng</a>
+    <a href="./game-page.html" class="nav__link">Tổng Quan Tiến Độ</a>
+  </nav>
+
+
+  <main class="game-main">
+    <section class="game-header">
+      <div class="game-container">
+        <h1 class="game-title">Trung Tâm Trò Chơi</h1>
+        <p class="game-subtitle">Học mà chơi, chơi mà học. Luyện tập từ vựng qua các thử thách thú vị!</p>
+      </div>
+    </section>
+
+    <section class="game-section">
+      <div class="game-container">
+        <div class="game-grid">
+
+          <a href="./game-guess-word.html" class="game-card">
+            <div class="game-card__image-container">
+              <img src="../assets/images/vocab-cloud.webp" alt="Đoán Từ" class="game-card__image">
+              <span class="game-card__badge badge--free">Miễn Phí</span>
+            </div>
+            <div class="game-card__content">
+              <h3>Đoán Từ Siêu Tốc</h3>
+              <p>Thử thách tốc độ: bạn có số lần đoán tương ứng với độ khó, càng sát nghĩa thì phần trăm hiển thị càng cao </p>
+            </div>
+            <div class="game-card__info">
+              <span class="game-card__price price--free">Không giới hạn</span>
+              <span class="game-card__action">Chơi Ngay</span>
+            </div>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card__image-container">
+              <img src="../assets/images/diep-vien.jpeg" alt="Nghe Lén" class="game-card__image">
+              <span class="game-card__badge badge--vip">👑 VIP</span>
+            </div>
+            <div class="game-card__content">
+              <h3>Điệp Viên Nghe Lén</h3>
+              <p>Nghe một đoạn hội thoại hoặc clip ngắn và điền từ còn thiếu. Luyện kỹ năng Nghe.</p>
+            </div>
+            <div class="game-card__info">
+              <span class="game-card__price price--vip">Yêu cầu VIP</span>
+              <span class="game-card__action action--vip">Nâng Cấp</span>
+            </div>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card__image-container">
+              <img src="../assets/images/vocab-cloud.webp" alt="Từ Đồng Nghĩa" class="game-card__image">
+              <span class="game-card__badge badge--free">Miễn Phí</span>
+            </div>
+            <div class="game-card__content">
+              <h3>Tìm Từ Đồng Nghĩa</h3>
+              <p>Ghép các cặp từ có ý nghĩa tương tự. Mở rộng vốn từ và hiểu sâu sắc thái từ.</p>
+            </div>
+            <div class="game-card__info">
+              <span class="game-card__price price--free">5 lượt/ngày</span>
+              <span class="game-card__action">Chơi Ngay</span>
+            </div>
+          </a>
+          
+          <div class="game-card game-card--promo">
+            <div class="card__icon" style="font-size: 4rem; margin-bottom: 1rem;">🎮</div>
+            <h3>Mở Khóa Toàn Bộ Game!</h3>
+            <p>Trở thành VIP để chơi 'Nghe Lén', 'Ngữ Cảnh Phim' và nhận không giới hạn lượt chơi!</p>
+            <div class="game-card__info">
+              <span class="game-card__price">Chỉ từ 49k/tháng</span>
+              <a href="#" class="game-card__action promo-action">Nâng Cấp VIP</a>
+            </div>
+          </div>
+
+          <a href="#" class="game-card">
+            <div class="game-card__image-container">
+              <img src="../assets/images/Harry-potter-films.webp" alt="Ngữ Cảnh Phim" class="game-card__image">
+              <span class="game-card__badge badge--vip">👑 VIP</span>
+            </div>
+            <div class="game-card__content">
+              <h3>Học Qua Phim Ảnh (Harry Potter)</h3>
+              <p>Học từ vựng qua các clip phim kinh điển. (Tính năng độc quyền từ khóa học).</p>
+            </div>
+            <div class="game-card__info">
+              <span class="game-card__price price--vip">Yêu cầu VIP</span>
+              <span class="game-card__action action--vip">Nâng Cấp</span>
+            </div>
+          </a>
+
+          <a href="#" class="game-card">
+            <div class="game-card__image-container">
+              <img src="https://images.unsplash.com/photo-1619074989938-a1c6e118f6d7?w=800" alt="Lật Thẻ" class="game-card__image">
+              <span class="game-card__badge badge--free">Miễn Phí</span>
+            </div>
+            <div class="game-card__content">
+              <h3>Lật Thẻ Ghi Nhớ</h3>
+              <p>Trò chơi kinh điển giúp luyện trí nhớ và liên kết từ vựng với hình ảnh.</p>
+            </div>
+            <div class="game-card__info">
+              <span class="game-card__price price--free">Không giới hạn</span>
+              <span class="game-card__action">Chơi Ngay</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="footer">
+    <p>&copy; 2025 <strong>VocabMaster</strong>. Học vui – Nhớ lâu – Thành thạo.</p>
+  </footer>
+
+  <script>
+    // Logout
+    function logout() {
+      localStorage.removeItem('user');
+      alert('Đăng xuất thành công!');
+      window.location.href = '../../index.html';
+    }
+  </script>
+</body>
+
+</html>

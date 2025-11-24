@@ -1,0 +1,720 @@
+/* ====================================
+   REVIEW VOCAB PAGE - SRS FLASHCARDS
+   Chuẩn: html { font-size: 62.5%; } → 1rem = 10px
+==================================== */
+
+:root {
+  --primary: #58CC02;
+  --primary-light: #8AFF4D;
+  --primary-dark: #4aa002;
+  --secondary: #FF4B4B;
+  --again: #dc3545;
+  --hard: #fd7e14;
+  --good: #28a745;
+  --easy: #17a2b8;
+  --text: #2d3748;
+  --text-light: #718096;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --radius: 2.4rem;
+  --shadow: 0 1rem 3rem rgba(88, 204, 2, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-section {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.review-header h1 {
+  font-size: 3.5rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.review-header p {
+  font-size: 1.8rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Mode Selector */
+.mode-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  padding: 1rem 2rem;
+  background: var(--card-bg);
+  border: 0.2rem solid var(--border);
+  border-radius: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.5rem;
+}
+
+.mode-btn.active,
+.mode-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Stats */
+.review-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 1.4rem;
+  color: var(--text-light);
+}
+
+/* Flashcard */
+.flashcard-container {
+  perspective: 100rem;
+  margin: 0 auto 3rem;
+  max-width: 50rem;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 30rem;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flashcard-front {
+  z-index: 2;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.pronunciation {
+  font-size: 1.8rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.flip-btn {
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.flip-btn:hover {
+  background: var(--primary-dark);
+}
+
+.flashcard-back h3 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.example {
+  font-size: 1.6rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.diff-btn {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 8rem;
+}
+
+.diff-btn.again {
+  background: var(--again);
+  color: white;
+}
+
+.diff-btn.hard {
+  background: var(--hard);
+  color: white;
+}
+
+.diff-btn.good {
+  background: var(--good);
+  color: white;
+}
+
+.diff-btn.easy {
+  background: var(--easy);
+  color: white;
+}
+
+.diff-btn:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* Progress */
+.progress-info {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  height: 1rem;
+  background: var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 0.5rem;
+  transition: width 0.5s ease;
+  width: 0;
+}
+
+/* Completion */
+.completion-screen {
+  text-align: center;
+  padding: 4rem;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.completion-screen h2 {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.completion-screen p {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flashcard-inner {
+    height: 25rem;
+  }
+
+  .flashcard-front h2 {
+    font-size: 3rem;
+  }
+
+  .difficulty-buttons {
+    gap: 0.8rem;
+  }
+
+  .diff-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .mode-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mode-btn {
+    width: 100%;
+    max-width: 30rem;
+  }
+}
+
+/* ====================================
+   ADDITIONS FOR MCQ & FILL-BLANK MODES
+==================================== */
+
+/* --- Multiple Choice --- */
+.mcq-question {
+  max-width: 60rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mcq-question h3 {
+  font-size: 3.2rem;
+  color: var(--primary);
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.mcq-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* 2 cột */
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.mcq-btn {
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 0.2rem solid var(--border);
+  border-radius: 1.6rem;
+  font-size: 1.6rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 0.4rem 0 var(--border);
+  /* Hiệu ứng nút nổi */
+  position: relative;
+}
+
+.mcq-btn:hover {
+  transform: translateY(-0.2rem);
+  border-color: var(--primary-light);
+}
+
+.mcq-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Trạng thái đúng/sai */
+.mcq-btn.correct {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0.4rem 0 var(--primary-dark);
+}
+
+.mcq-btn.wrong {
+  background: var(--secondary);
+  color: white;
+  border-color: #d32f2f;
+  box-shadow: 0 0.4rem 0 #d32f2f;
+}
+
+/* Nút bị disable sau khi chọn */
+.mcq-btn.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* --- Fill In The Blank --- */
+.fill-blank-question {
+  max-width: 60rem;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--card-bg);
+  padding: 4rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+#fill-sentence {
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+#fill-input {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.8rem;
+  border: 0.2rem solid var(--border);
+  border-radius: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  transition: var(--transition);
+  outline: none;
+}
+
+#fill-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.4rem rgba(88, 204, 2, 0.2);
+}
+
+#fill-input.correct {
+  border-color: var(--primary);
+  background-color: #e8f5e9;
+  color: var(--primary-dark);
+}
+
+#fill-input.wrong {
+  border-color: var(--secondary);
+  background-color: #ffebee;
+  color: var(--secondary);
+}
+
+/* --- General Feedback Area --- */
+.feedback-msg {
+  font-size: 1.6rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  min-height: 2.4rem;
+}
+
+.feedback-msg.success {
+  color: var(--primary);
+}
+
+.feedback-msg.error {
+  color: var(--secondary);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 0.4rem 0 var(--primary-dark);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-primary:active {
+  transform: translateY(0.4rem);
+  box-shadow: none;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+  .mcq-options {
+    grid-template-columns: 1fr;
+    /* Chuyển thành 1 cột trên mobile */
+  }
+}
+
+/* ====================================
+   NEW HORIZONTAL LAYOUT
+==================================== */
+
+.review-section {
+  /* Giữ nguyên background cũ */
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* Căn giữa theo chiều dọc nếu màn hình to */
+  padding: 4rem 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 120rem;
+  /* Tăng chiều rộng tối đa để chứa 2 cột */
+  margin: 0 auto;
+}
+
+/* Grid layout chính */
+.review-layout {
+  display: grid;
+  grid-template-columns: 32rem 1fr;
+  /* Cột trái 320px, Cột phải chiếm phần còn lại */
+  gap: 4rem;
+  align-items: start;
+}
+
+/* --- SIDEBAR (Cột trái) --- */
+.review-sidebar {
+  position: sticky;
+  top: 2rem;
+  /* Dính khi cuộn trang */
+}
+
+.sidebar-card {
+  background: var(--card-bg);
+  padding: 3rem 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.review-header h2 {
+  font-size: 2.8rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.review-header p {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+/* Stats trong Sidebar (Xếp ngang nhỏ gọn) */
+.review-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg);
+  padding: 1.5rem;
+  border-radius: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 3rem;
+  background: var(--border);
+}
+
+.stat-value {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Mode Selector (Xếp dọc) */
+.mode-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.mode-selector {
+  display: flex;
+  flex-direction: column;
+  /* Xếp dọc nút */
+  gap: 1.2rem;
+}
+
+.mode-btn {
+  width: 100%;
+  text-align: left;
+  padding: 1.4rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  border-radius: 1.6rem;
+}
+
+.mode-btn span {
+  font-size: 1.8rem;
+}
+
+/* --- PLAYGROUND (Cột phải) --- */
+.review-playground {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Progress Bar đẹp hơn */
+.progress-container {
+  background: var(--card-bg);
+  padding: 1.5rem 2.5rem;
+  border-radius: 1.6rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+
+.progress-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 1.2rem;
+  background: #edf2f7;
+  margin-top: 0;
+}
+
+/* Flashcard Container (Căn chỉnh lại cho cột phải) */
+.flashcard-container {
+  margin: 0 auto;
+  max-width: 100%;
+  /* Cho phép giãn full chiều ngang cột phải */
+  width: 100%;
+  height: 40rem;
+  /* Tăng chiều cao cố định */
+}
+
+.flashcard-inner {
+  height: 100%;
+}
+
+.flashcard-front,
+.flashcard-back {
+  padding: 4rem;
+}
+
+.flashcard-front h2 {
+  font-size: 5rem;
+  /* To hơn chút vì không gian rộng */
+}
+
+/* MCQ & Fill Blank căn chỉnh */
+.mcq-question,
+.fill-blank-question {
+  max-width: 100%;
+  /* Full width cột phải */
+  background: var(--card-bg);
+  padding: 5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.mcq-options {
+  grid-template-columns: 1fr 1fr;
+  /* 2 cột đáp án */
+  gap: 2rem;
+}
+
+/* ====================================
+   RESPONSIVE (Mobile quay về dọc)
+==================================== */
+@media (max-width: 900px) {
+  .review-layout {
+    grid-template-columns: 1fr;
+    /* Quay về 1 cột */
+    gap: 3rem;
+  }
+
+  .review-sidebar {
+    position: static;
+    /* Hết dính trên mobile */
+  }
+
+  .review-stats {
+    justify-content: space-around;
+  }
+
+  .mode-selector {
+    flex-direction: row;
+    /* Quay về ngang trên mobile */
+    flex-wrap: wrap;
+  }
+
+  .mode-label {
+    display: none;
+    /* Ẩn nhãn trên mobile cho gọn */
+  }
+
+  .mode-btn {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .flashcard-container {
+    height: 35rem;
+  }
+
+  .mcq-question,
+  .fill-blank-question {
+    padding: 2rem;
+  }
+}

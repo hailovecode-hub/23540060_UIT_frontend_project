@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Guessing Game - Mạng Nơ-ron V6</title>
+    <!-- Tối ưu SEO  -->
+    <meta name="description"
+        content="Thử thách trí tuệ với trò chơi đoán từ vựng dựa trên liên kết ngữ nghĩa. Sử dụng gợi ý thông minh từ AI để tìm ra từ khóa ẩn giấu nhanh nhất.">
+    <meta name="keywords" content="học tiếng anh, từ vựng tiếng anh, AI học tiếng anh, VocabMaster, flashcard">
+    <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+    <meta property="og:description"
+        content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+    <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+    <meta property="og:url" content="https://vocabmaster.com/">
+    <!--  -->
+    <!-- duong-dan-toi-favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/game-guess-word.css">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="./home-page.html" style="text-decoration: none;">
+                <div class="logo">
+                    <span class="logo__icon">🦉</span>
+                    <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="./home-page.html" class="nav__link">🏠</a>
+                <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+                <a href="./ranking-page.html" class="nav__link">Bảng Xếp Hạng</a>
+                <a href="./store-page.html" class="nav__link">Cửa Hàng</a>
+            </nav>
+
+            <div class="user-profile">
+                <span class="profile-icon" title="Hồ sơ của bạn">
+                    <a href="../pages/profile.html">👤</a>
+                </span>
+                <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav2">
+        <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+        <a href="./ranking.html" class="nav__link">Bảng Xếp Hạng</a>
+        <a href="./game-page.html" class="nav__link">Tổng Quan Tiến Độ</a>
+    </nav>
+
+    <div class="app-wrapper">
+        <div id="level-selection">
+            <h1>Chọn Cấp Độ Từ Vựng</h1>
+            <p>Mỗi cấp độ có số lượt đoán và độ khó khác nhau.</p>
+            <div class="level-buttons">
+                <button class="level-btn" data-level="A">A1 - A2 (20 Lượt)</button>
+                <button class="level-btn" data-level="B">B1 - B2 (50 Lượt)</button>
+                <button class="level-btn" data-level="C">C1 - C2 (100 Lượt)</button>
+            </div>
+        </div>
+
+        <div id="game-container" class="main-container hidden">
+            <div class="left-panel">
+                <header>
+                    <h1 id="game-title">Đoán Từ Bí Ẩn</h1>
+                    <p style="color: var(--text-light-color);">Đường nối càng ngắn, bạn càng gần với đáp án.</p>
+                </header>
+                <div id="hint"><strong>Gợi ý:</strong> <span id="hint-text"></span></div>
+                <div class="control-panel">
+                    <input type="text" id="word-input" placeholder="Nhập từ đoán của bạn...">
+                    <button id="guess-btn">Đoán</button>
+                    <div id="result-message"></div>
+                    <div id="final-score"></div>
+                </div>
+                <div id="history-panel">
+                    <h3>Lịch sử đoán</h3>
+                    <ul id="history-list"></ul>
+                </div>
+            </div>
+            <div class="right-panel">
+                <div id="brain-container">
+                    <div id="root-node">
+                        <div class="neuron-core"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="guess-sound" src="../assets/audio/guess-sound.wav"></audio>
+    <audio id="win-sound" src="../assets/audio/mixkit-video-game-win-2016.wav"></audio>
+    <audio id="lose-sound" src="../assets/audio/mixkit-losing-bleeps-2026.wav"></audio>
+
+    <script src="../js/game-guess-word.js">
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Vocabulary Demo</title>
+    <!-- Tối ưu SEO  -->
+  <meta name="description"
+    content="Chế độ ôn tập thông minh sử dụng thuật toán Lặp lại ngắt quãng (Spaced Repetition). Luyện tập qua Flashcard, điền từ và trắc nghiệm để nhớ từ mãi mãi.">
+  <meta name="keywords" content="học tiếng anh, từ vựng tiếng anh, AI học tiếng anh, VocabMaster, flashcard">
+  <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+  <meta property="og:description"
+    content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+  <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+  <meta property="og:url" content="https://vocabmaster.com/">
+  <!--  -->
+  <!-- duong-dan-toi-favicon -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+  <link rel="stylesheet" href="../css/review-vocab.css">
+  <link rel="stylesheet" href="../css/global.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container">
+      <a href="./home-page.html" style="text-decoration: none;">
+        <div class="logo">
+          <span class="logo__icon">🦉</span>
+          <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="./home-page.html" class="nav__link">🏠</a>
+        <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+        <a href="./ranking-page.html" class="nav__link">Bảng Xếp Hạng</a>
+        <a href="./store-page.html" class="nav__link">Cửa Hàng</a>
+      </nav>
+
+      <div class="user-profile">
+        <span class="profile-icon" title="Hồ sơ của bạn">
+          <a href="../pages/profile.html">👤</a>
+        </span>
+        <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav2">
+    <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+    <a href="./ranking.html" class="nav__link">Bảng Xếp Hạng</a>
+    <a href="./game-page.html" class="nav__link">Tổng Quan Tiến Độ</a>
+  </nav>
+
+  <div class="review-section">
+    <div class="container">
+
+      <div class="review-layout">
+
+        <aside class="review-sidebar">
+          <div class="sidebar-card">
+            <div class="review-header">
+              <h2>Review Zone</h2>
+              <p>Daily SRS Practice</p>
+            </div>
+
+            <div class="review-stats">
+              <div class="stat-item">
+                <span class="stat-value">20</span>
+                <span class="stat-label">Due</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-value">85%</span>
+                <span class="stat-label">Acc</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Strk</span>
+              </div>
+            </div>
+
+            <div class="mode-selector">
+              <p class="mode-label">Chọn chế độ:</p>
+              <button class="mode-btn active" onclick="switchMode('flashcard')">
+                <span>🎴</span> Flashcard
+              </button>
+              <button class="mode-btn" onclick="switchMode('mcq')">
+                <span>📋</span> Multiple Choice
+              </button>
+              <button class="mode-btn" onclick="switchMode('fill')">
+                <span>✍️</span> Fill Blank
+              </button>
+            </div>
+          </div>
+        </aside>
+        <main class="review-playground">
+          <div class="progress-container">
+            <div class="progress-info-row">
+              <span id="progress-text">Card 1 / 5</span>
+              <span id="progress-percent">20%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 20%"></div>
+            </div>
+          </div>
+          <div id="game-area">
+          </div>
+        </main>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/review-vocab.js">  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocabMaster - Học Tiếng Anh Thông Minh với AI</title>
+  <!-- Tối ưu SEO  -->
+  <meta name="description"
+    content="Học từ vựng tiếng Anh nhanh gấp 3 lần với trí tuệ nhân tạo (AI). Lộ trình cá nhân hóa, phương pháp lặp lại ngắt quãng và học qua trò chơi. Đăng ký ngay!">
+  <meta name="keywords" content="học tiếng anh, từ vựng tiếng anh, AI học tiếng anh, VocabMaster, flashcard">
+  <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+  <meta property="og:description"
+    content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+  <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+  <meta property="og:url" content="https://vocabmaster.com/">
+  <!--  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Inter:wght@400;700;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/landing-page.css">
+
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <div class="logo">
+        <span class="logo__icon">🦉</span>
+        <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+      </div>
+
+      <nav class="nav">
+        <a href="#features" class="nav__link">Tính năng</a>
+        <a href="#ai-tutor" class="nav__link">Gia sư AI</a>
+        <a href="#testimonials" class="nav__link">Phản hồi</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="btn btn--text btn-login">Đăng nhập</button>
+        <button class="btn btn--primary btn-signup">Bắt đầu</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav2">
+    <a href="#features" class="nav__link">Tính năng</a>
+    <a href="#ai-tutor" class="nav__link">Gia sư AI</a>
+    <a href="#testimonials" class="nav__link">Phản hồi</a>
+  </nav>
+
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h2>Đăng nhập</h2>
+      <form id="loginForm">
+        <input type="text" placeholder="Email" required>
+        <input type="password" placeholder="Mật khẩu" required>
+        <button type="submit" class="btn btn--primary w-full">Đăng nhập</button>
+      </form>
+      <div class="divider">hoặc</div>
+      <div id="loginWithGoogle"></div>
+      <p class="switch-auth text-center">
+        <span>Chưa có tài khoản?</span>
+        <a href="#" onclick="switchModal('loginModal','signupModal')" class="switch-link">Tạo ngay</a>
+      </p>
+
+    </div>
+  </div>
+
+  <div id="signupModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('signupModal')">&times;</span>
+      <h2>Đăng ký</h2>
+      <form id="signupForm">
+        <input type="text" placeholder="Tên hiển thị" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Mật khẩu" required>
+        <button type="submit" class="btn btn--gradient w-full">Tạo tài khoản</button>
+      </form>
+      <div class="divider">hoặc</div>
+      <div id="signupWithGoogle"></div>
+      <p class="switch-auth text-center">
+        <span>Đã có tài khoản?</span>
+        <a href="#" onclick="switchModal('signupModal','loginModal')" class="switch-link">Đăng nhập</a>
+      </p>
+    </div>
+  </div>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero__container">
+        <div class="hero__animation-wrapper">
+          <!-- ảnh APNG (Animated Portable Network Graphics) thay vì GIF-->
+          <img src="./assets/images/funny_owl.png" alt="Minh họa học tiếng Anh với AI" class="hero__animation">
+        </div>
+
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Tương lai của việc học tiếng Anh.
+            <br>
+            <span class="hero__title--highlight">Được hỗ trợ bởi AI.</span>
+          </h1>
+          <p class="hero__subtitle">
+            Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với các bài học vui nhộn, được cá
+            nhân hóa bởi trí tuệ nhân tạo.
+          </p>
+          <div class="hero__cta">
+            <button class="btn btn--gradient">
+              Bắt đầu học miễn phí
+            </button>
+          </div>
+
+          <div class="bars-container">
+            <!-- Cột A1 -->
+            <div class="bar-item">
+              <div id="bar-a1" class="bar">A1</div>
+              <span class="bar-label">Beginner</span>
+            </div>
+            <!-- Cột A2 -->
+            <div class="bar-item">
+              <div id="bar-a2" class="bar">A2</div>
+              <span class="bar-label label-hidden">.</span>
+            </div>
+            <!-- Cột B1 -->
+            <div class="bar-item">
+              <div id="bar-b1" class="bar">B1</div>
+              <span class="bar-label">Intermediate</span>
+            </div>
+            <!-- Cột B2 -->
+            <div class="bar-item">
+              <div id="bar-b2" class="bar">B2</div>
+              <span class="bar-label label-hidden">.</span>
+            </div>
+            <!-- Cột C1 -->
+            <div class="bar-item">
+              <div id="bar-c1" class="bar">C1</div>
+              <span class="bar-label">Advanced</span>
+            </div>
+            <!-- Cột C2 -->
+            <div class="bar-item">
+              <div id="bar-c2" class="bar">C2</div>
+              <span class="bar-label label-hidden">.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Tại sao bạn sẽ yêu thích VocabMaster</h2>
+          <p class="section-subtitle">Học tập không chỉ là ghi nhớ. Đó là một cuộc phiêu lưu.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-card__icon">📘</div>
+            <h3 class="feature-card__title">Học Hiệu Quả</h3>
+            <p class="feature-card__text">Các bài học nhỏ gọn, tập trung giúp bạn tiếp thu kiến thức mới mỗi ngày mà
+              không cảm thấy quá tải.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🧠</div>
+            <h3 class="feature-card__title">Ghi Nhớ Mãi Mãi</h3>
+            <p class="feature-card__text">Hệ thống lặp lại ngắt quãng (SRS) thông minh của chúng tôi đảm bảo bạn không
+              bao giờ quên những gì đã học.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🏆</div>
+            <h3 class="feature-card__title">Vừa Học Vừa Chơi</h3>
+            <p class="feature-card__text">Biến việc học thành thói quen với các trò chơi từ vựng hấp dẫn và bảng xếp
+              hạng đầy tính cạnh tranh.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🆚</div>
+            <h3 class="feature-card__title">Thách Đấu Bạn Bè</h3>
+            <p class="feature-card__text">Thử thách kiến thức của bạn với bạn bè hoặc AI để tăng thêm động lực và sự
+              hứng khởi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-tutor" class="ai-tutor-section">
+      <div class="container">
+        <div class="ai-tutor__grid">
+          <div class="ai-tutor__content">
+            <span class="ai-tutor__tag">GIA SƯ CÁ NHÂN CỦA BẠN</span>
+            <h2 class="section-title">Gặp gỡ trợ lý AI thông minh</h2>
+            <p class="section-subtitle">AI của VocabMaster không chỉ là một công cụ. Đó là người bạn đồng hành học tập
+              của bạn. Nó phân tích hiệu suất, xác định điểm yếu và tạo ra một lộ trình học tập độc đáo chỉ dành cho
+              bạn.</p>
+            <ul class="ai-tutor__list">
+              <li class="ai-tutor__list-item">
+                <!-- Các icon được vẽ bằng SVG editor nguồn https://www.svgrepo.com/ -->
+                <svg class="ai-tutor__list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span><strong>Lộ trình học tập cá nhân hóa:</strong> Các bài học được điều chỉnh theo tốc độ và trình độ
+                  của bạn.</span>
+              </li>
+              <li class="ai-tutor__list-item">
+                <svg class="ai-tutor__list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span><strong>Phát hiện điểm yếu:</strong> Tự động tìm ra những từ và khái niệm bạn cần củng cố.</span>
+              </li>
+              <li class="ai-tutor__list-item">
+                <svg class="ai-tutor__list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span><strong>Gợi ý thông minh:</strong> Nhận các đề xuất bài học và ôn tập hàng ngày để tối ưu hóa việc
+                  học.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="ai-tutor__recommendation">
+            <div class="recommendation-board">
+              <h3 class="recommendation-board__title">🧠 Khuyến Nghị Thông Minh</h3>
+              <div class="recommendation-board__analysis">
+                Phân tích cho thấy bạn cần ôn tập chủ đề "Khoa học Dữ liệu".
+              </div>
+              <ul class="recommendation-board__list">
+                <li class="recommendation-item recommendation-item--review">
+                  <span>[Ôn Tập] Bài Big Data</span>
+                  <span class="recommendation-item__action">Bắt đầu</span>
+                </li>
+                <li class="recommendation-item recommendation-item--new">
+                  <span>[Từ Mới] Module "Algorithm"</span>
+                  <span class="recommendation-item__action">Học ngay</span>
+                </li>
+                <li class="recommendation-item recommendation-item--challenge">
+                  <span>[Thử Thách] Đấu trường C1</span>
+                  <span class="recommendation-item__action">Tham gia</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Hàng ngàn người học đã tiến bộ</h2>
+          <p class="section-subtitle">Đừng chỉ nghe chúng tôi nói. Hãy xem họ nói gì.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-card__text">"VocabMaster đã thay đổi hoàn toàn cách tôi học từ vựng. Tính năng AI thực
+              sự hiểu được điểm yếu của tôi và giúp tôi cải thiện mỗi ngày. Highly recommended!"</p>
+            <div class="testimonial-card__author">
+              <img src="https://placehold.co/50x50/E2F5D6/4A5568?text=A" alt="Avatar An Nguyen"
+                class="testimonial-card__avatar">
+              <div>
+                <p class="testimonial-card__name">An Nguyễn</p>
+                <p class="testimonial-card__title">Sinh viên IT</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-card__text">"Tôi yêu các trò chơi! Nó khiến việc học không còn nhàm chán. Tôi đã có
+              thể nhớ được hàng trăm từ mới chỉ trong một tháng mà không hề cảm thấy áp lực."</p>
+            <div class="testimonial-card__author">
+              <img src="https://placehold.co/50x50/FFE0E0/4A5568?text=L" alt="Avatar Lan Chi"
+                class="testimonial-card__avatar">
+              <div>
+                <p class="testimonial-card__name">Lan Chi</p>
+                <p class="testimonial-card__title">Nhân viên Marketing</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-card__text">"Là một người bận rộn, các bài học ngắn gọn của VocabMaster là cứu cánh.
+              Chỉ 15 phút mỗi ngày, nhưng vốn từ của tôi đã tăng lên đáng kể."</p>
+            <div class="testimonial-card__author">
+              <img src="https://placehold.co/50x50/D1E8FF/4A5568?text=B" alt="Avatar Minh Bùi"
+                class="testimonial-card__avatar">
+              <div>
+                <p class="testimonial-card__name">Minh Bùi</p>
+                <p class="testimonial-card__title">Quản lý dự án</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-section__container">
+        <h2 class="cta-section__title">Sẵn sàng để trở thành một Bậc Thầy Từ Vựng?</h2>
+        <p class="cta-section__subtitle">Bắt đầu hành trình chinh phục tiếng Anh của bạn ngay hôm nay. Hoàn toàn miễn
+          phí.</p>
+        <div class="cta-section__action">
+          <button class="btn btn--light">
+            Đăng ký ngay
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <h3 class="footer__title">VocabMaster</h3>
+          <p class="footer__text">Học tiếng Anh thông minh và vui nhộn. Được hỗ trợ bởi AI.</p>
+        </div>
+        <div class="footer__links">
+          <h3 class="footer__title">Liên kết</h3>
+          <ul class="footer__list">
+            <li><a href="about.html" class="footer__link">Về chúng tôi</a></li>
+            <li><a href="#" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer__legal">
+          <h3 class="footer__title">Pháp lý</h3>
+          <ul class="footer__list">
+            <li><a href="#" class="footer__link">Điều khoản dịch vụ</a></li>
+            <li><a href="#" class="footer__link">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__copyright">
+        <p>&copy; 2025 VocabMaster. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Modal controls
+    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+    function switchModal(from, to) { closeModal(from); openModal(to); }
+
+    document.querySelector('.hero__cta').onclick = () => openModal('signupModal');
+    document.querySelector('.btn-login').onclick = () => openModal('loginModal');
+    document.querySelector('.btn-signup').onclick = () => openModal('signupModal');
+    document.querySelector('.btn--light').onclick = () => openModal('signupModal');
+
+    // Google Identity Services
+    // Hàm này sẽ được gọi khi thư viện Google đã tải xong
+    // Để thực hiện chức năng đăng nhập thực sự, bạn bắt buộc phải sử dụng Thư viện Google Identity Services (GIS).
+    // Việc cố gắng tự thực hiện luồng đăng nhập không chỉ cực kỳ phức tạp mà còn không an toàn cho người dùng.
+    function initializeGoogleSignIn() {
+      google.accounts.id.initialize({
+        client_id: "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com", // Nhớ thay client_id thật của bạn
+        callback: handleGoogleResponse
+      });
+
+      // Vẽ nút cho form đăng nhập
+      google.accounts.id.renderButton(
+        document.getElementById("loginWithGoogle"),
+        { theme: "outline", size: "large", text: "signin_with", width: "280" } // Thêm các tùy chọn để nút trông đẹp hơn
+      );
+
+      // Vẽ nút cho form đăng ký
+      google.accounts.id.renderButton(
+        document.getElementById("signupWithGoogle"),
+        { theme: "outline", size: "large", text: "signup_with", width: "280" }
+      );
+    }
+
+    function handleGoogleResponse(response) {
+      console.log("Google token:", response.credential);
+      // TODO: gửi token này về server backend để xác thực người dùng
+    }
+
+  </script>
+  <script src="https://accounts.google.com/gsi/client" onload="initializeGoogleSignIn()" async defer></script>
+  <script src="./js/main.js"></script>
+
+</body>
+
+</html>

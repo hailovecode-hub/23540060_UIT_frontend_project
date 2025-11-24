@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocabMaster - Cửa Hàng Khóa Học</title>
+    <!-- Tối ưu SEO  -->
+  <meta name="description" content="Khám phá các bộ từ vựng chuyên sâu: Tiếng Anh Giao tiếp, Du lịch, Công sở và IELTS. Mở khóa nội dung Premium để bứt phá khả năng ngôn ngữ của bạn.">
+  <meta name="keywords" content="học tiếng anh, từ vựng tiếng anh, AI học tiếng anh, VocabMaster, flashcard">
+  <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+  <meta property="og:description"
+    content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+  <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+  <meta property="og:url" content="https://vocabmaster.com/">
+  <!--  -->
+  <!-- duong-dan-toi-favicon -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/store-page.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <a href="./home-page.html" style="text-decoration: none;">
+        <div class="logo">
+          <span class="logo__icon">🦉</span>
+          <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="./home-page.html" class="nav__link">🏠</a>
+        <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+        <a href="./ranking-page.html" class="nav__link">Bảng Xếp Hạng</a>
+        <a href="./store-page.html" class="nav__link" style="color: var(--color-primary);">Cửa Hàng</a>
+      </nav>
+
+      <div class="user-profile">
+        <span class="profile-icon" title="Hồ sơ của bạn">
+          <a href="../pages/profile.html">👤</a>
+        </span>
+        <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav2">
+    <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+    <a href="./ranking.html" class="nav__link">Bảng Xếp Hạng</a>
+    <a href="./game-page.html" class="nav__link">Tổng Quan Tiến Độ</a>
+    <a href="./store-page.html" class="nav__link" style="color: var(--color-primary);">Cửa Hàng</a>
+  </nav>
+
+  <main class="store-main">
+    <section class="store-header">
+      <div class="store-container">
+        <h1 class="store-title">Khám Phá Các Khóa Học</h1>
+        <p class="store-subtitle">Nâng tầm từ vựng của bạn với các gói học chuyên biệt.</p>
+
+        <div class="store-filters">
+          <button class="filter-btn active">Tất cả</button>
+          <button class="filter-btn">Miễn Phí</button>
+          <button class="filter-btn">VIP</button>
+          <button class="filter-btn">IELTS / TOEIC</button>
+          <button class="filter-btn">Giải Trí</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="course-section">
+      <div class="store-container">
+        <div class="course-grid">
+
+          <a href="#" class="course-card">
+            <div class="course-card__image-container">
+              <img src="../assets/images/ielts.webp" alt="IELTS" class="course-card__image">
+              <span class="course-card__badge badge--vip">👑 VIP</span>
+            </div>
+            <div class="course-card__content">
+              <h3>IELTS Foundation</h3>
+              <p>Nền tảng 500+ từ vựng Academic thiết yếu cho band 6.0.</p>
+            </div>
+            <div class="course-card__info">
+              <span class="course-card__price price--vip">Yêu cầu VIP</span>
+              <span class="course-card__action">Nâng cấp</span>
+            </div>
+          </a>
+
+          <a href="#" class="course-card">
+            <div class="course-card__image-container">
+              <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?w=800" alt="TOEIC"
+                class="course-card__image">
+              <span class="course-card__badge badge--free">Miễn Phí</span>
+            </div>
+            <div class="course-card__content">
+              <h3>TOEIC Essentials</h3>
+              <p>Từ vựng cốt lõi thường xuất hiện trong phần Nghe & Đọc.</p>
+            </div>
+            <div class="course-card__info">
+              <span class="course-card__price price--free">Miễn phí</span>
+              <span class="course-card__action">Bắt đầu học</span>
+            </div>
+          </a>
+
+          <a href="#" class="course-card">
+            <div class="course-card__image-container">
+              <img src="../assets/images/Harry-potter-films.webp" alt="Harry Potter" class="course-card__image">
+              <span class="course-card__badge badge--vip">👑 VIP</span>
+            </div>
+            <div class="course-card__content">
+              <h3>Phép Thuật Từ Vựng (Harry Potter)</h3>
+              <p>Học từ vựng độc đáo qua bối cảnh ma thuật từ bộ truyện.</p>
+            </div>
+            <div class="course-card__info">
+              <span class="course-card__price price--vip">Yêu cầu VIP</span>
+              <span class="course-card__action">Nâng cấp</span>
+            </div>
+          </a>
+
+          <div class="course-card course-card--promo">
+            <div class="card__icon" style="font-size: 4rem; margin-bottom: 1rem;">✨</div>
+            <h3>Trở Thành VIP!</h3>
+            <p>Mở khóa **tất cả** khóa học (IELTS, Harry Potter...) và các tính năng độc quyền.</p>
+            <div class="course-card__info">
+              <span class="course-card__price">Chỉ từ 49k/tháng</span>
+              <a href="#" class="course-card__action promo-action">Khám Phá Ngay</a>
+            </div>
+          </div>
+
+          <a href="#" class="course-card">
+            <div class="course-card__image-container">
+              <img src="../assets/images/travel.jpg" alt="Du lịch" class="course-card__image">
+              <span class="course-card__badge badge--premium">Cao cấp</span>
+            </div>
+            <div class="course-card__content">
+              <h3>Từ Vựng Du Lịch</h3>
+              <p>Tự tin check-in, gọi món và khám phá thế giới.</p>
+            </div>
+            <div class="course-card__info">
+              <span class="course-card__price price--premium">99.000đ</span>
+              <span class="course-card__action">Mua ngay</span>
+            </div>
+          </a>
+
+          <a href="#" class="course-card">
+            <div class="course-card__image-container">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800" alt="Công sở"
+                class="course-card__image">
+              <span class="course-card__badge badge--free">Miễn Phí</span>
+            </div>
+            <div class="course-card__content">
+              <h3>Giao Tiếp Công Sở</h3>
+              <p>Email, họp, thuyết trình. Dành cho người đi làm.</p>
+            </div>
+            <div class="course-card__info">
+              <span class="course-card__price price--free">Miễn phí</span>
+              <span class="course-card__action">Bắt đầu học</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="footer">
+    <p>&copy; 2025 <strong>VocabMaster</strong>. Học vui – Nhớ lâu – Thành thạo.</p>
+  </footer>
+
+  <script>
+    // Logout
+    function logout() {
+      localStorage.removeItem('user');
+      alert('Đăng xuất thành công!');
+      window.location.href = '../../index.html';
+    }
+  </script>
+</body>
+
+</html>

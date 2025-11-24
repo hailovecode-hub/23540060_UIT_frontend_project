@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - VocabMaster</title>
+    <!-- Tối ưu SEO  -->
+  <meta name="description"
+    content="Học từ vựng tiếng Anh thông minh cùng VocabMaster. Lộ trình cá nhân hóa với AI, trò chơi hóa việc học và hệ thống lặp lại ngắt quãng giúp ghi nhớ mãi mãi.">
+  <meta name="keywords" content="học tiếng anh, từ vựng tiếng anh, AI học tiếng anh, VocabMaster, flashcard">
+  <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+  <meta property="og:description"
+    content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+  <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+  <meta property="og:url" content="https://vocabmaster.com/">
+  <!--  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/landing-page.css">
+  <link rel="stylesheet" href="./css/pages.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+        <span class="logo__icon">🦉</span>
+        <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Trang chủ</a>
+        <a href="about.html" class="nav__link">Về chúng tôi</a>
+        <a href="contact.html" class="nav__link nav__link--active">Liên hệ</a>
+      </nav>
+      <div class="header__actions">
+        <button class="btn btn--text btn-login">Đăng nhập</button>
+        <button class="btn btn--primary btn-signup">Bắt đầu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">Liên hệ với chúng tôi</h1>
+        <p class="page-hero__desc">Bạn có câu hỏi? Đội ngũ VocabMaster luôn sẵn sàng hỗ trợ bạn 24/7.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3 class="section-title" style="font-size: 2.4rem; margin-bottom: 2rem;">Thông tin</h3>
+            
+            <div class="contact-info__item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Địa chỉ:</strong>
+                <p style="color: var(--color-gray-text-1)">Tầng 12, Tòa nhà Innovation<br>Quận 1, TP. Hồ Chí Minh</p>
+              </div>
+            </div>
+
+            <div class="contact-info__item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <strong>Email:</strong>
+                <p><a href="mailto:support@vocabmaster.com" style="color: var(--color-primary); text-decoration: none;">support@vocabmaster.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info__item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Hotline:</strong>
+                <p style="color: var(--color-gray-text-1)">1900 123 456</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+              <strong>Theo dõi chúng tôi:</strong>
+              <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="btn--text" style="padding: 0; font-size: 2rem;">FB</button>
+                <button class="btn--text" style="padding: 0; font-size: 2rem;">IG</button>
+                <button class="btn--text" style="padding: 0; font-size: 2rem;">LI</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-wrapper">
+            <h3 class="section-title" style="font-size: 2.4rem; margin-bottom: 2rem;">Gửi tin nhắn</h3>
+            <form class="contact-form">
+              <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name" placeholder="Nhập tên của bạn" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="name@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Nội dung</label>
+                <textarea id="message" placeholder="Bạn cần hỗ trợ gì?"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--gradient w-full">Gửi đi</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background-color: #f9fafb;">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header">
+          <h2 class="section-title" style="font-size: 2.8rem;">Câu hỏi thường gặp</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <details style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: var(--default-shadow); cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--color-gray-dark);">VocabMaster có miễn phí không?</summary>
+            <p style="margin-top: 1rem; color: var(--color-gray-text-1);">Có! Bạn có thể học miễn phí trọn đời. Chúng tôi cũng cung cấp gói Premium với các tính năng nâng cao.</p>
+          </details>
+          <details style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: var(--default-shadow); cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--color-gray-dark);">Tôi có thể học offline không?</summary>
+            <p style="margin-top: 1rem; color: var(--color-gray-text-1);">Hiện tại tính năng học offline đang được phát triển và sẽ ra mắt trong phiên bản mobile app sắp tới.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <h3 class="footer__title">VocabMaster</h3>
+          <p class="footer__text">Học tiếng Anh thông minh và vui nhộn. Được hỗ trợ bởi AI.</p>
+        </div>
+        <div class="footer__links">
+          <h3 class="footer__title">Liên kết</h3>
+          <ul class="footer__list">
+            <li><a href="about.html" class="footer__link">Về chúng tôi</a></li>
+            <li><a href="#" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer__legal">
+          <h3 class="footer__title">Pháp lý</h3>
+          <ul class="footer__list">
+            <li><a href="#" class="footer__link">Điều khoản dịch vụ</a></li>
+            <li><a href="#" class="footer__link">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__copyright">
+        <p>&copy; 2025 VocabMaster. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/main.js"></script>
+</body>
+</html>

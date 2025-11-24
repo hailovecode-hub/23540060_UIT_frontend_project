@@ -1,0 +1,273 @@
+/* ====================================
+   HOMEPAGE - CHUẨN 62.5% (1rem = 10px)
+==================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap');
+
+:root {
+  --accent: #FFC107;
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4f9e4 100%);
+  --card-shadow: 0 1rem 3rem rgba(88, 204, 2, 0.15);
+  --card-shadow-hover: 0 2rem 4rem rgba(88, 204, 2, 0.25);
+  --border: #e2e8f0;
+  --radius: 2.4rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+*/
+/* Hero Section */
+.hero {
+  padding-top: 12rem; /* 120px */
+  padding-bottom: 6rem;
+}
+
+.hero__container {
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.hero__content {
+  text-align: left;
+}
+
+.hero__title {
+  font-size: 4.2rem; /* 42px */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero__title span {
+  color: var(--color-primary);
+}
+
+.hero__subtitle {
+  font-size: 1.8rem; /* 18px */
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+/* Progress Ring */
+.progress-ring {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+}
+
+.progress-ring__svg {
+  transform: rotate(-90deg);
+}
+
+.progress-ring__circle-bg {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 1rem; /* 10px */
+}
+
+.progress-ring__circle {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 1rem;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.progress-ring__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.4rem; /* 24px */
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.menu-card {
+  background: white;
+  padding: 2.4rem;
+  border-radius: var(--radius);
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-dark);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, transparent, rgba(88, 204, 2, 0.05));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.menu-card:hover::before {
+  opacity: 1;
+}
+
+.menu-card:hover {
+  transform: translateY(-1rem) scale(1.02);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card__icon {
+  font-size: 4.8rem; /* 48px */
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.menu-card h3 {
+  font-size: 1.8rem; /* 18px */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.menu-card p {
+  font-size: 1.4rem; /* 14px */
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.card__badge {
+  background: var(--color-primary);
+  color: white;
+  font-size: 1.2rem; /* 12px */
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+}
+
+/* Card Colors */
+.menu-card.learn { border-top: 0.6rem solid var(--color-primary); }
+.menu-card.review { border-top: 0.6rem solid #6c5ce7; }
+.menu-card.game { border-top: 0.6rem solid var(--accent); }
+.menu-card.challenge { border-top: 0.6rem solid var(--color-secondary); }
+
+/* AI Board */
+.ai-board {
+  max-width: 140rem;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.ai-board__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.ai-board__header h2 {
+  font-size: 2.2rem; /* 22px */
+  color: var(--text-dark);
+}
+
+.ai-status {
+  background: var(--primary-color-light);
+  color: var(--primary-color-dark);
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 1.3rem; /* 13px */
+  font-weight: 600;
+}
+
+.recommendation-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.recommendation-item {
+  background: white;
+  padding: 1.4rem 1.8rem;
+  border-radius: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.recommendation-item:hover {
+  transform: translateX(0.8rem);
+}
+
+.recommendation-item strong {
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.reward {
+  color: var(--accent);
+  font-weight: 700;
+  margin-left: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.action-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: var(--transition);
+}
+
+.action-btn:hover {
+  background: var(--primary-color-dark);
+  transform: translateY(-0.2rem);
+}
+
+.user-id {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  color: var(--text-light);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero__content {
+    text-align: center;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: 3.2rem; /* 32px */
+  }
+  .nav {
+    display: none;
+  }
+  .hero {
+    padding-top: 10rem;
+  }
+}

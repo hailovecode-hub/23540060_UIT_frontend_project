@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Xếp Hạng - VocabMaster</title>
+  <!-- Tối ưu SEO  -->
+  <meta name="description"
+    content="Vinh danh những người học chăm chỉ nhất tuần. Xem thứ hạng XP của bạn so với cộng đồng VocabMaster và nỗ lực để đứng đầu bảng vàng.">
+  <meta name="keywords" content="học tiếng anh, từ vựng tiếng anh, AI học tiếng anh, VocabMaster, flashcard">
+  <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+  <meta property="og:description"
+    content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+  <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+  <meta property="og:url" content="https://vocabmaster.com/">
+  <!--  -->
+  <!-- duong-dan-toi-favicon -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/ranking.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container">
+      <a href="./home-page.html" style="text-decoration: none;">
+        <div class="logo">
+          <span class="logo__icon">🦉</span>
+          <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="./home-page.html" class="nav__link">🏠</a>
+        <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+        <a href="./ranking-page.html" class="nav__link">Bảng Xếp Hạng</a>
+        <a href="./store-page.html" class="nav__link">Cửa Hàng</a>
+      </nav>
+
+      <div class="user-profile">
+        <span class="profile-icon" title="Hồ sơ của bạn">
+          <a href="../pages/profile.html">👤</a>
+        </span>
+        <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav2">
+    <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+    <a href="./ranking.html" class="nav__link">Bảng Xếp Hạng</a>
+    <a href="./game-page.html" class="nav__link">Tổng Quan Tiến Độ</a>
+  </nav>
+
+
+  <main class="ranking-board">
+    <div class="ranking-container">
+
+      <h1 class="ranking-title">🏆 Bảng Xếp Hạng 🏆</h1>
+      <p class="ranking-subtitle">Những học viên xuất sắc nhất tuần!</p>
+
+      <div class="ranking-filters">
+        <button class="filter-btn active">Top Tuần</button>
+        <button class="filter-btn">Top Tháng</button>
+        <button class="filter-btn">Mọi Thời Đại</button>
+      </div>
+
+      <section class="ranking-podium">
+        <div class="podium-card rank-2">
+          <div class="podium-rank">🥈</div>
+          <div class="podium-avatar">👩‍💻</div>
+          <h3 class="podium-name">Trần Thị B</h3>
+          <span class="podium-score">12,500 XP</span>
+        </div>
+        <div class="podium-card rank-1">
+          <div class="podium-rank">🥇</div>
+          <div class="podium-avatar">👨‍🚀</div>
+          <h3 class="podium-name">Nguyễn Văn A</h3>
+          <span class="podium-score">15,000 XP</span>
+        </div>
+        <div class="podium-card rank-3">
+          <div class="podium-rank">🥉</div>
+          <div class="podium-avatar">🧑‍🎨</div>
+          <h3 class="podium-name">Lê Văn C</h3>
+          <span class="podium-score">11,200 XP</span>
+        </div>
+      </section>
+
+      <section class="ranking-list-container">
+        <h2>Bảng Xếp Hạng</h2>
+        <ol class="ranking-list" start="4">
+          <li class="ranking-list__item">
+            <span class="rank">4</span>
+            <div class="user-info">
+              <span class="avatar">🦸</span>
+              <span class="name">Phạm Hùng Dũng</span>
+            </div>
+            <span class="score">9,800 XP</span>
+          </li>
+          <li class="ranking-list__item">
+            <span class="rank">5</span>
+            <div class="user-info">
+              <span class="avatar">🕵️</span>
+              <span class="name">Đỗ Mỹ Linh</span>
+            </div>
+            <span class="score">9,550 XP</span>
+          </li>
+          <li class="ranking-list__item">
+            <span class="rank">6</span>
+            <div class="user-info">
+              <span class="avatar">🧑‍🔬</span>
+              <span class="name">Bùi Tiến Đạt</span>
+            </div>
+            <span class="score">9,200 XP</span>
+          </li>
+          <li class="ranking-list__item current-user">
+            <span class="rank">7</span>
+            <div class="user-info">
+              <span class="avatar">👤</span>
+              <span class="name">Bạn (Học viên)</span>
+            </div>
+            <span class="score">8,900 XP</span>
+          </li>
+          <li class="ranking-list__item">
+            <span class="rank">8</span>
+            <div class="user-info">
+              <span class="avatar">👩‍⚖️</span>
+              <span class="name">Vũ Cát Tường</span>
+            </div>
+            <span class="score">8,500 XP</span>
+          </li>
+        </ol>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 <strong>VocabMaster</strong>. Học vui – Nhớ lâu – Thành thạo.</p>
+  </footer>
+
+  <script>
+    // Logout function (từ home-page.html)
+    function logout() {
+      localStorage.removeItem('user');
+      alert('Đăng xuất thành công!');
+      window.location.href = '../index.html';
+    }
+
+    // Script nhỏ cho filter buttons
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Bỏ active ở tất cả
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        // Thêm active cho button được click
+        button.classList.add('active');
+        // (Logic tải dữ liệu mới sẽ ở đây)
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+/* Font Varela Round cho sự thân thiện và tròn trịa */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Inter:wght@400;700&display=swap');
+
+/* --- BẢNG MÀU VÀ BIẾN TOÀN CỤC --- */
+:root {
+  /* Green (Primary) */
+  --color-primary: #58CC02;
+  --primary-color-dark: #4aa002;
+  --primary-color-light: #8AFF4D;
+
+  /* Red/Pink for emphasis (Secondary) */
+  --color-secondary: #FF4B4B;
+
+  /* Backgrounds */
+  --color-background: #F4F7F9;
+  --color-card-bg: #FFFFFF;
+  --color-white: #ffffff;
+  --color-gray-light-1: #f9fafb;
+  /* bg-gray-50 */
+  --color-gray-light-2: #f3f4f6;
+  /* bg-gray-100 */
+  --color-gray-dark: #1f2937;
+  /* bg-gray-800 */
+  --footer-color: var(--color-gray-dark);
+
+  /* Text */
+  --text-dark: #2d3748;
+  /* gray-800 */
+  --text-medium: #4a5568;
+  /* gray-700 */
+  --text-light: #718096;
+  /* gray-600 */
+  --color-gray-text-1: #4b5563;
+  /* text-gray-600 */
+  --color-gray-text-2: #374151;
+  /* text-gray-700 */
+
+  /* Shadows */
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --default-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --medium-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --large-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* Font */
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Varela Round', sans-serif;
+}
+
+/* --- THIẾT LẬP RESET CƠ BẢN --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Varela Round', 'Inter', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+/* ============================================
+  CÁC THÀNH PHẦN CHUNG (HEADER / FOOTER)
+============================================
+*/
+
+/* --- HEADER --- */
+.header {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  position: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  box-shadow: var(--medium-shadow);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  /* Responsive cho cột sẽ ở dưới */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+
+.logo {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.logo__icon {
+  font-size: 2.4rem;
+  margin-right: 0.5rem;
+}
+
+.logo__text--primary {
+  color: var(--primary-color-light);
+}
+
+.logo__text--secondary {
+  color: var(--color-gray-text-2);
+}
+
+/* ============================
+Phần Nav 
+===============================*/
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Nav của bản mobile bị ẩn ở bản web */
+.nav2 {
+  display: none;
+}
+
+.nav__link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.6rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav__link:hover {
+  color: var(--color-primary);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -0.6rem;
+  left: 0;
+  width: 0;
+  height: 0.3rem;
+  background: var(--color-primary);
+  border-radius: 0.2rem;
+  transition: var(--transition);
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+/* Kiểu cho link active trên thanh nav */
+.nav__link--active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.nav__link--active::after {
+  width: 100%;
+}
+
+/* ==== Phần PROFILE ============================*/
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- NEW HEADER STYLES FOR LOGGED-IN STATE (Synced with global.css) --- */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Khoảng cách giữa icon và nút */
+}
+
+.profile-icon {
+  font-size: 24px;
+  /* Giữ px để cố định kích thước icon */
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--color-gray-light-1);
+  /* Dùng màu xám nhạt từ global */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary);
+  /* Dùng màu xanh lá primary */
+  border: 2px solid var(--primary-color-light);
+  /* Dùng màu xanh lá nhạt */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(88, 204, 2, 0.3);
+  /* Shadow màu xanh lá */
+}
+
+.logout-btn {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+  padding: 8px 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* font-size sẽ kế thừa từ body (1.6rem = 16px) - Đã chuẩn */
+}
+
+.logout-btn:hover {
+  background: var(--color-secondary);
+  color: white;
+}
+
+/* --- END NEW HEADER STYLES --- */
+
+/* --- FOOTER --- */
+.footer {
+  background-color: var(--footer-color);
+  color: var(--color-white);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer__title {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer__text {
+  color: #9ca3af;
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__link {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__link:hover {
+  color: var(--color-white);
+}
+
+.footer__copyright {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #4b5563;
+  text-align: center;
+  color: #6b7280;
+  /* Áp dụng container cho copyright */
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+
+/* ============================================
+  RESPONSIVE CHO CÁC THÀNH PHẦN CHUNG
+===============================================
+*/
+
+/* Small screens and up (640px) màn hình điện thoại nhỏ */
+@media (min-width: 640px) {
+  .header__actions .btn--text {
+    display: block;
+  }
+}
+
+
+/* Medium screens and up (768px) màn hình điện thoại lớn */
+@media(max-width:768px) {
+  .nav2 {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    padding-top: 2rem;
+    background-color: var(--color-white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav {
+    display: none;
+  }
+}
+
+
+/* Media Query cho Mobile (ví dụ: màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+}
+
+/* Large screens and up (1024px) các dòng ipad pro */
+@media (min-width: 1024px) {
+  /* (Không có style header/footer nào ở đây) */
+}
+
+
+

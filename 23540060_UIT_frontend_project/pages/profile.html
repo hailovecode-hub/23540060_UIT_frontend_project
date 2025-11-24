@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ - VocabMaster</title>
+    <!-- Tối ưu SEO  -->
+    <meta name="description"
+        content="Quản lý thông tin cá nhân, thay đổi mật khẩu và xem tổng quan thành tích học tập, huy hiệu đã đạt được của bạn tại VocabMaster.">
+    <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+    <meta property="og:description"
+        content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+    <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+    <meta property="og:url" content="https://vocabmaster.com/">
+    <!--  -->
+    <!-- duong-dan-toi-favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="./home-page.html" style="text-decoration: none;">
+                <div class="logo">
+                    <span class="logo__icon">🦉</span>
+                    <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="./home-page.html" class="nav__link">🏠</a>
+                <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+                <a href="./ranking-page.html" class="nav__link">Bảng Xếp Hạng</a>
+                <a href="./store-page.html" class="nav__link">Cửa Hàng</a>
+            </nav>
+
+            <div class="user-profile">
+                <span class="profile-icon" title="Hồ sơ của bạn">
+                    <a href="../pages/profile.html">👤</a>
+                </span>
+                <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav2">
+        <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+        <a href="./ranking.html" class="nav__link">Bảng Xếp Hạng</a>
+        <a href="./game-page.html" class="nav__link">Tổng Quan Tiến Độ</a>
+    </nav>
+
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="profile-container">
+            <!-- Avatar & Stats -->
+            <div class="profile-header">
+                <div class="avatar-container">
+                    <div class="avatar" id="avatar-preview">
+                        <img id="avatar-img" src="../assets/images/user-avartar.png" alt="Avatar">
+                        <div class="avatar-placeholder">User</div>
+                    </div>
+                    <label class="avatar-upload-btn">
+                        <input type="file" id="avatar-input" accept="image/*" hidden>
+                        Đổi ảnh
+                    </label>
+                </div>
+
+                <div class="user-stats">
+                    <h1 id="user-fullname">duc hai</h1>
+                    <p class="user-email" id="user-email">duc_hai@example.com</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value" id="total-words">1,248</span>
+                            <span class="stat-label">Từ đã học</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="streak-days">12</span>
+                            <span class="stat-label">Chuỗi ngày</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="xp-points">8,520</span>
+                            <span class="stat-label">XP</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="rank-level">Master</span>
+                            <span class="stat-label">Hạng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Form -->
+            <div class="profile-form-card">
+                <h2>Chỉnh sửa thông tin</h2>
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="fullname">Họ và tên</label>
+                        <input type="text" id="fullname" placeholder="Nhập họ tên" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Tiểu sử (tùy chọn)</label>
+                        <textarea id="bio" rows="3" placeholder="Nói gì đó về bạn..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Lưu thay đổi</button>
+                        <button type="button" class="btn-secondary" onclick="resetForm()">Hủy</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Change Password -->
+            <div class="profile-form-card">
+                <h2>Đổi mật khẩu</h2>
+                <form id="password-form">
+                    <div class="form-group">
+                        <label for="current-password">Mật khẩu hiện tại</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="new-password">Mật khẩu mới</label>
+                        <input type="password" id="new-password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Xác nhận mật khẩu</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Cập nhật mật khẩu</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Delete Account -->
+            <div class="profile-form-card danger-zone">
+                <h2>Xóa tài khoản</h2>
+                <p>Hành động này <strong>không thể hoàn tác</strong>. Tất cả dữ liệu sẽ bị xóa vĩnh viễn.</p>
+                <button class="btn-danger" onclick="deleteAccount()">Xóa tài khoản</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 <strong>VocabMaster</strong>. Học vui – Nhớ lâu – Thành thạo.
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Logout
+        function logout() {
+            localStorage.removeItem('user');
+            alert('Đăng xuất thành công!');
+            window.location.href = '../index.html';
+        }
+
+        // Load user data
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+            // Default data
+            const defaultUser = {
+                fullname: 'duc hai',
+                email: 'duchai@example.com',
+                bio: 'Yêu thích học từ vựng tiếng Anh!',
+                avatar: '',
+                stats: { words: 1248, streak: 12, xp: 8520, rank: 'Master' }
+            };
+
+            const current = { ...defaultUser, ...user };
+
+            // Fill form
+            document.getElementById('fullname').value = current.fullname;
+            document.getElementById('email').value = current.email;
+            document.getElementById('bio').value = current.bio || '';
+
+            // Fill display
+            document.getElementById('user-fullname').textContent = current.fullname;
+            document.getElementById('user-email').textContent = current.email;
+            document.getElementById('total-words').textContent = current.stats.words;
+            document.getElementById('streak-days').textContent = current.stats.streak;
+            document.getElementById('xp-points').textContent = current.stats.xp.toLocaleString();
+            document.getElementById('rank-level').textContent = current.stats.rank;
+
+            // Avatar
+            if (current.avatar) {
+                document.getElementById('avatar-img').src = current.avatar;
+                document.querySelector('.avatar-placeholder').style.display = 'none';
+            }
+        });
+
+        // Avatar upload
+        document.getElementById('avatar-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const img = document.getElementById('avatar-img');
+                    img.src = ev.target.result;
+                    img.style.display = 'block';
+                    document.querySelector('.avatar-placeholder').style.display = 'none';
+
+                    // Save to localStorage
+                    const user = JSON.parse(localStorage.getItem('user') || '{}');
+                    user.avatar = ev.target.result;
+                    localStorage.setItem('user', JSON.stringify(user));
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Save profile
+        document.getElementById('profile-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const user = {
+                fullname: document.getElementById('fullname').value,
+                email: document.getElementById('email').value,
+                bio: document.getElementById('bio').value,
+            };
+
+            localStorage.setItem('user', JSON.stringify(user));
+            alert('Cập nhật hồ sơ thành công!');
+            location.reload();
+        });
+
+        // Change password
+        document.getElementById('password-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newPass = document.getElementById('new-password').value;
+            const confirmPass = document.getElementById('confirm-password').value;
+
+            if (newPass !== confirmPass) {
+                alert('Mật khẩu xác nhận không khớp!');
+                return;
+            }
+            if (newPass.length < 6) {
+                alert('Mật khẩu phải ít nhất 6 ký tự!');
+                return;
+            }
+
+            alert('Đổi mật khẩu thành công! (Lưu ý: Đây là demo, không có backend)');
+            e.target.reset();
+        });
+
+        // Reset form
+        function resetForm() {
+            document.getElementById('profile-form').reset();
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            document.getElementById('fullname').value = user.fullname || '';
+            document.getElementById('email').value = user.email || '';
+            document.getElementById('bio').value = user.bio || '';
+        }
+
+        // Delete account
+        function deleteAccount() {
+            if (confirm('Bạn có chắc chắn muốn xóa tài khoản? Hành động này không thể hoàn tác!')) {
+                localStorage.removeItem('user');
+                alert('Tài khoản đã được xóa.');
+                window.location.href = '../../index.html';
+            }
+        }
+
+        // Header scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+
+</html>

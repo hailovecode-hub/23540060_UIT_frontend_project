@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Từ Vựng - VocabMaster</title>
+    <!-- Tối ưu SEO  -->
+    <meta name="description"
+        content="Xem danh sách từ vựng đã học, thêm từ mới hoặc chỉnh sửa ghi chú cá nhân. Theo dõi mức độ thành thạo của từng từ để tối ưu hóa lộ trình ôn tập.">
+    <meta name="keywords" content="học tiếng anh, từ vựng tiếng anh, AI học tiếng anh, VocabMaster, flashcard">
+    <meta property="og:title" content="VocabMaster - Học Tiếng Anh Thông Minh với AI">
+    <meta property="og:description"
+        content="Tham gia cùng hàng triệu người học, đạt được mục tiêu ngoại ngữ của bạn với AI.">
+    <meta property="og:image" content="https://vocabmaster.com/assets/images/thumbnail.jpg">
+    <meta property="og:url" content="https://vocabmaster.com/">
+    <!--  -->
+    <!-- duong-dan-toi-favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/manage.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="./home-page.html" style="text-decoration: none;">
+                <div class="logo">
+                    <span class="logo__icon">🦉</span>
+                    <span class="logo__text--primary">Vocab</span><span class="logo__text--secondary">Master</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="./home-page.html" class="nav__link">🏠</a>
+                <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+                <a href="./ranking-page.html" class="nav__link">Bảng Xếp Hạng</a>
+                <a href="./store-page.html" class="nav__link">Cửa Hàng</a>
+            </nav>
+
+            <div class="user-profile">
+                <span class="profile-icon" title="Hồ sơ của bạn">
+                    <a href="../pages/profile.html">👤</a>
+                </span>
+                <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav2">
+        <a href="./manage-vocab-full.html" class="nav__link">Quản lý từ vựng</a>
+        <a href="./ranking.html" class="nav__link">Bảng Xếp Hạng</a>
+        <a href="./game-page.html" class="nav__link">Tổng Quan Tiến Độ</a>
+    </nav>
+
+
+    <main>
+        <div class="container">
+            <div class="card dashboard-container">
+                <div class="dashboard-header">
+                    <h1 class="main-title">Tổng quan tiến độ học tập của bạn</h1>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="level-progress-container">
+                        <div class="circular-progress" id="level-progress-circle">
+                            <div class="progress-value" id="level-display">
+                            </div>
+                        </div>
+                        <div class="level-info">
+                            <p id="words-to-next-level">Đang tải...</p>
+                            <button id="aiLevelCheckBtn" class="btn btn-ai-check">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                                <span>Tính cấp độ thật (AI)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="topic-breakdown-container">
+                        <h2>Từ vựng theo chủ đề</h2>
+                        <div id="topic-breakdown">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card controls-card">
+                <div class="search-container">
+                    <span class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </span>
+                    <input type="search" id="search-input" placeholder="Tìm kiếm từ vựng, nghĩa...">
+                </div>
+                <button onclick="showAddWordModal()" class="btn btn-gradient">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>Thêm từ mới</span>
+                </button>
+            </div>
+
+            <div class="card filters-card">
+                <h3>Lọc theo chủ đề:</h3>
+                <div id="topic-filter-buttons">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="table-container">
+                    <table class="vocab-table">
+                        <thead>
+                            <tr>
+                                <th>Từ vựng</th>
+                                <th>Nghĩa</th>
+                                <th>Chủ đề</th>
+                                <th>Trình độ</th>
+                                <th class="text-center">Mức độ thông thạo</th>
+                                <th class="text-center">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vocab-table">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pagination">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <div id="addWordModal" class="modal-overlay">
+    </div> -->
+    <div id="addWordModal" class="modal-overlay">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title">Thêm từ vựng mới</h2>
+                <button onclick="closeAddWordModal()" class="close-btn">&times;</button>
+            </div>
+            <form id="addWordForm" class="modal-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="wordInput">Từ vựng *</label>
+                        <input type="text" id="wordInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="meaningInput">Nghĩa *</label>
+                        <input type="text" id="meaningInput" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput">Ví dụ (tiếng Anh)</label>
+                    <textarea id="exampleInput" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleMeaningInput">Nghĩa của ví dụ</label>
+                    <textarea id="exampleMeaningInput" rows="2"></textarea>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="topicInput">Chủ đề *</label>
+                        <input type="text" id="topicInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="levelInput">Trình độ *</label>
+                        <select id="levelInput" required>
+                            <option value="">Chọn một tùy chọn...</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="imageUrlInput">URL Hình ảnh</label>
+                        <input type="url" id="imageUrlInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="proficiencyInput">Mức độ thông thạo *</label>
+                        <select id="proficiencyInput" required>
+                            <option value="" disabled selected>Chọn cấp độ...</option>
+                            <option value="1">1 - Mới học</option>
+                            <option value="2">2 - Đang học</option>
+                            <option value="3">3 - Khá quen</option>
+                            <option value="4">4 - Thông thạo</option>
+                            <option value="5">5 - Đã thành thạo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="closeAddWordModal()" class="btn btn-secondary">Hủy</button>
+                    <button type="submit" class="btn btn-gradient">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="editWordModal" class="modal-overlay">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title">Chỉnh sửa từ vựng</h2>
+                <button onclick="closeEditWordModal()" class="close-btn">&times;</button>
+            </div>
+            <form id="editWordForm" class="modal-form">
+                <input type="hidden" id="editWordId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editWordInput">Từ vựng *</label>
+                        <input type="text" id="editWordInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editMeaningInput">Nghĩa *</label>
+                        <input type="text" id="editMeaningInput" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="editExampleInput">Ví dụ (tiếng Anh)</label>
+                    <textarea id="editExampleInput" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editExampleMeaningInput">Nghĩa của ví dụ</label>
+                    <textarea id="editExampleMeaningInput" rows="2"></textarea>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editTopicInput">Chủ đề *</label>
+                        <input type="text" id="editTopicInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editLevelInput">Trình độ *</label>
+                        <select id="editLevelInput" required>
+                            <option value="">Chọn một tùy chọn...</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editImageUrlInput">URL Hình ảnh</label>
+                        <input type="url" id="editImageUrlInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="editProficiencyInput">Mức độ thông thạo *</label>
+                        <select id="editProficiencyInput" required>
+                            <option value="" disabled selected>Chọn cấp độ...</option>
+                            <option value="1">1 - Mới học</option>
+                            <option value="2">2 - Đang học</option>
+                            <option value="3">3 - Khá quen</option>
+                            <option value="4">4 - Thông thạo</option>
+                            <option value="5">5 - Đã thành thạo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" onclick="closeEditWordModal()" class="btn btn-secondary">Hủy</button>
+                    <button type="submit" class="btn btn-gradient">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirmDeleteModal" class="modal-overlay">
+        <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2 class="modal-title">Xác nhận Xóa</h2>
+            </div>
+            <div id="confirm-delete-text" style="padding: 16px 0; font-size: 16px;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancel-delete-btn" class="btn btn-secondary">Hủy</button>
+                <button type="button" id="confirm-delete-btn" class="btn btn-danger">Xác nhận Xóa</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/manage-vocab.js"></script>
+    <script>
+        // Logout
+        function logout() {
+            localStorage.removeItem('user');
+            alert('Đăng xuất thành công!');
+            window.location.href = '../../index.html';
+        }
+    </script>
+</body>
+
+</html>

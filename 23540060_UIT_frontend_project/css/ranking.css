@@ -1,0 +1,245 @@
+/* ====================================
+   RANKING PAGE - CSS
+   Sử dụng biến từ global.css và home-page.css
+==================================== */
+
+/* Sao chép các biến từ home-page.css để đảm bảo tính nhất quán 
+  về shadow và radius (vì chúng không có trong global.css)
+*/
+:root {
+  --primary: #58CC02;
+  --primary-light: #8AFF4D;
+  --primary-dark: #4aa002;
+  --secondary: #FF4B4B;
+  --accent: #FFC107;
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4f9e4 100%);
+  --card-shadow: 0 1rem 3rem rgba(88, 204, 2, 0.15);
+  --card-shadow-hover: 0 2rem 4rem rgba(88, 204, 2, 0.25);
+  --text: #2d3748;
+  --text-light: #718096;
+  --border: #e2e8f0;
+  --radius: 2.4rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Main Content */
+.ranking-board {
+  padding-top: 10rem; /* Đẩy nội dung xuống dưới header */
+  padding-bottom: 6rem;
+  min-height: 80vh;
+}
+
+.ranking-container {
+  max-width: 96rem; /* 960px - Bảng xếp hạng không cần quá rộng */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Tiêu đề */
+.ranking-title {
+  font-size: 4.2rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.ranking-subtitle {
+  font-size: 1.8rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Bộ lọc */
+.ranking-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.filter-btn {
+  font-family: 'Poppins', sans-serif;
+  background: var(--color-card-bg, white);
+  border: 2px solid var(--border);
+  color: var(--text-light);
+  padding: 0.8rem 2rem;
+  border-radius: 5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Podium (Top 3) */
+.ranking-podium {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 1.5rem;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
+.podium-card {
+  background: white;
+  padding: 2.4rem 1.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  border: 3px solid transparent;
+  transition: var(--transition);
+}
+
+.podium-rank {
+  font-size: 3.6rem;
+}
+
+.podium-avatar {
+  font-size: 6rem;
+  margin: 1rem 0;
+}
+
+.podium-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.podium-score {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Kiểu riêng cho Top 3 */
+.podium-card.rank-1 {
+  border-color: #FFD700; /* Gold */
+  transform: translateY(-2rem); /* Nâng hạng 1 lên cao hơn */
+  box-shadow: var(--card-shadow-hover);
+}
+
+.podium-card.rank-2 {
+  border-color: #C0C0C0; /* Silver */
+}
+
+.podium-card.rank-3 {
+  border-color: #CD7F32; /* Bronze */
+}
+
+/* Danh sách xếp hạng (4+) */
+.ranking-list-container {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ranking-list__item {
+  display: flex;
+  align-items: center;
+  padding: 1.4rem 1.8rem;
+  border-radius: 1.6rem;
+  transition: var(--transition);
+  margin-bottom: 0.5rem;
+}
+
+.ranking-list__item:hover {
+  background: var(--color-gray-light-1, #f9fafb);
+  transform: translateX(0.5rem);
+}
+
+.ranking-list__item .rank {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  width: 4rem;
+  flex-shrink: 0;
+  text-align: left;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-grow: 1;
+}
+
+.user-info .avatar {
+  font-size: 2.8rem;
+  width: 3.2rem;
+  text-align: center;
+}
+
+.user-info .name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ranking-list__item .score {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+
+/* Làm nổi bật người dùng hiện tại */
+.ranking-list__item.current-user {
+  background: var(--primary-light);
+  border: 2px solid var(--primary);
+}
+
+.ranking-list__item.current-user .name,
+.ranking-list__item.current-user .rank,
+.ranking-list__item.current-user .score {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ranking-title {
+    font-size: 3.2rem;
+  }
+
+  .ranking-podium {
+    /* Chuyển thành 1 cột, hạng 1 trên cùng */
+    grid-template-columns: 1fr;
+  }
+
+  /* Sắp xếp lại thứ tự trên mobile */
+  .podium-card.rank-1 { order: 1; transform: none; }
+  .podium-card.rank-2 { order: 2; }
+  .podium-card.rank-3 { order: 3; }
+
+  .ranking-list__item {
+    padding: 1rem 1.2rem;
+  }
+  .user-info .name {
+    font-size: 1.5rem;
+  }
+  .ranking-list__item .score {
+    font-size: 1.6rem;
+  }
+}
